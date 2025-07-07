@@ -8,5 +8,4 @@ class TestCore(EnvExperiment):
     def run(self):
         self.core.reset()
         self.core.break_realtime()
-
         print("Hello Possible!")
