@@ -10,7 +10,7 @@ from artiq.experiment import rpc
 import time
 
 
-class FastinoTest(EnvExperiment): # The name that appears in artiq_dashboard
+class FastinoTestSimple(EnvExperiment): # The name that appears in artiq_dashboard
     def build(self): # defines all of the devices that the experiment (the program) will use - NO @KERNEL SO IT IS NOT RUN ON THE FPGA
         self.setattr_device("core") # the kasli core device
         self.setattr_device("fastino0") # fastino card
@@ -19,6 +19,15 @@ class FastinoTest(EnvExperiment): # The name that appears in artiq_dashboard
 
     @kernel
     def run(self):
-        self.fastino0.set_dac(0, self.output_voltage / 10.0)
-        self.fastino0.load()
+        self.core.reset()
+        self.core.break_realtime()
+        
+        self.fastino0.init()
+        delay(100*us)
+        
+        self.fastino0.set_dac(0, self.output_voltage)
+        delay(100*us)
+        
+        self.fastino0.update(0x1)  # update DAC channel 0
+        delay(100*us)
 

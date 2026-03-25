@@ -9,7 +9,7 @@ from artiq.experiment import kernel
 from artiq.experiment import rpc
 import time
 
-#print("Python executable:", sys.executable)
+###### THIS SHOULD BE ABLE TO RUN AT SAMPLE DELAY = NUM SAMPLES
 
 class Test_AD9910Signalling(EnvExperiment):
     def build(self):
@@ -90,7 +90,7 @@ class Test_AD9910Signalling(EnvExperiment):
         total_duration = self.num_samples * self.sample_delay
         print("Sample delay:", self.sample_delay)
         print("Number of samples:", self.num_samples)
-        print("Total sampling duration:", total_duration,"seconds")
+        print("Total sampling duration:", total_duration*1E3,"ms")
 
 
 

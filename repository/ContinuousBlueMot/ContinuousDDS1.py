@@ -16,6 +16,8 @@ class ContinuousDDS1(EnvExperiment): # The name that appears in artiq_dashboard
         self.urukul1 = self.get_device("urukul1_cpld") # the controller on the 0th dds card
 
         self.n_dds = 4  # Set to 4 if you're using all DDS channels
+        ### DDS CH0 is 200MHz amp 0.7
+        ### DDS CH1 is 80MHz amp 0.14
 
         # Initialize DDS device list
         self.dds_channels = []
@@ -24,13 +26,13 @@ class ContinuousDDS1(EnvExperiment): # The name that appears in artiq_dashboard
 
              # these are the defaults you will see in the dashboard 
             self.setattr_argument("frequency" + str(i),
-                                  NumberValue(default=80*MHz if i == 0 else 200*MHz),
+                                  NumberValue(default=125*MHz if i==0 else 80*MHz if i == 1 else 100*MHz),
                                   group="Frequency")
             self.setattr_argument("attenuation" + str(i),
                                   NumberValue(default=0.0),
                                   group="Attenuation")
             self.setattr_argument("amplitude" + str(i),
-                                  NumberValue(default=0.1 if i == 0 else 0.7),
+                                  NumberValue(default=0.6 if i == 0 else 0.18 if i == 1 else 0.7),
                                   group="Amplitude")
             self.setattr_argument("dds" + str(i) + "_enable",
                                   BooleanValue(default=True),
