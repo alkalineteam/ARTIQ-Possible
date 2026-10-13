@@ -1,3 +1,4 @@
+// crate config for CASTOR 10.2026
 {
     "_description": "CASTOR_UoB",
     "target": "kasli",
@@ -30,17 +31,18 @@
             "proto_rev": 9
         },
         {
-            "type": "zotino",
-            "ports": [6, 7]
+            "type": "fastino",
+            "ports": [6, 7],
+            "log2_width": 5,
         }
         {
             "type": "sampler",
             "ports": [8, 9]
         },
-        {
-            "type": "sampler",
-            "ports": [10, 11]
-        },
+        // { **to be added later**
+        //     "type": "sampler",
+        //     "ports": [10, 11]
+        // },
     ]
 }
 {
