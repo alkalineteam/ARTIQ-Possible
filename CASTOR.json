@@ -1,5 +1,3 @@
-# crate config file for CASTOR
-
 {
     "_description": "CASTOR_UoB",
     "target": "kasli",
@@ -70,14 +68,14 @@
             "board": "DIO_SMA",
             "ports": [2],
             "bank_direction_low": "output",
-            "bank_direction_high": "input"
+            "bank_direction_high": "output"
         },
         {
             "type": "dio",
             "board": "DIO_SMA",
             "ports": [3],
             "bank_direction_low": "output",
-            "bank_direction_high": "input"
+            "bank_direction_high": "output"
         },
         
     ]
