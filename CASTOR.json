@@ -6,7 +6,7 @@
     "min_artiq_version": "8.0",
     "variant": "CASTOR",
     "hw_rev": "v2.0",
-    "drtio_role": "standalone",
+    "drtio_role": "master",
     "core_addr": "192.168.1.70",
     "sed_lanes": 16,
     "peripherals": [
@@ -43,5 +43,42 @@
             "type": "sampler",
             "ports": [10, 11]
         },
+    ]
+}
+{
+    "_description": "CASTOR_UoB",
+    "target": "kasli",
+    "min_artiq_version": "8.0",
+    "variant": "CASTOR",
+    "hw_rev": "v2.0",
+    "drtio_role": "satellite",
+    "core_addr": "192.168.1.70",
+    "sed_lanes": 16,
+    "peripherals": [
+        {
+            "type": "mirny",
+            "ports": [0],
+            "clk_sel": "mmcx"
+        },
+        {
+            "type": "mirny",
+            "ports": [1],
+            "clk_sel": "mmcx"
+        },
+        {
+            "type": "dio",
+            "board": "DIO_SMA",
+            "ports": [2],
+            "bank_direction_low": "output",
+            "bank_direction_high": "input"
+        },
+        {
+            "type": "dio",
+            "board": "DIO_SMA",
+            "ports": [3],
+            "bank_direction_low": "output",
+            "bank_direction_high": "input"
+        },
+        
     ]
 }
